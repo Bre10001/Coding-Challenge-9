@@ -65,8 +65,8 @@ class Patron{
             console.log(`Sorry, "${book.title}" is currently not available.`); //else state book is unavailable
         }
     }
-    // Method to return a borrowed book
-    returnBook(book) {
+    
+    returnBook(book) { // method to return a borrowed book
         const index = this.borrowedBooks.indexOf(book);
         if (index !== -1) {
             this.borrowedBooks.splice(index, 1);
@@ -77,5 +77,25 @@ class Patron{
         }
     }
 
-
 }
+
+// Task 4: Create a VIP Patron Class
+
+class VIPPatron extends Patron{
+        constructor(name, priority = true) {
+            super(name);
+            this.priority = priority;
+    }
+        
+        borrowBook(book) { // Overriding the borrowBook method
+            if (this.priority || book.isAvailable) { //checks if book is available
+                book.isAvailable = false;
+                this.borrowedBooks.push(book); //if it is not, add it to borrowed list
+                console.log(`Priority given to VIP ${this.name} borrowing "${book.title}".`);
+            } else {
+                console.log(`Sorry, "${book.title}" is currently unavailable.`);
+            }
+        }
+}
+
+
