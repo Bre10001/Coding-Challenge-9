@@ -121,8 +121,8 @@ fiction.addBook(book2);
 nonFiction.addBook(book3);
 
 // Create patrons
-const regularPatron = new Patron("John Doe");
-const vipPatron = new VIPPatron("Jane Smith");
+const regularPatron = new Patron("Alice Doe");
+const vipPatron = new VIPPatron("Bob Smith");
 
 // Regular patron tries to borrow a book
 regularPatron.borrowBook(book1);
